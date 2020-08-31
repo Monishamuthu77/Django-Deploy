@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FORM VALIDATION</title>
+    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div><h3>Form Validation</h3></div>
+    <div class="form-group">
+       <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+
+           {{my_forms.as_p}}
+
+           <input type="submit" value="submit" class="btn btn-warning">
+
+</form>
+       {% if request.method == 'POST' %}
+    <div class="alert alert-success">Validated Successfully </div>
+    {% endif %}
+   </div>
+</div>
+</body>
+</html>
